@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/search.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row card-info border rounded">
+                <div class="col-4">
+                    <img class="img-fluid img-thumbnail" th:src="${card.image.normal}" alt="">
+                </div>
+                <div class="col-8">
+                    <h3 th:text="${card.name}"></h3>
+                    <p th:text="${card.description}"></p>
+                    <div th:if="${not #lists.isEmpty(card.rules)}">
+                        <h4 th:text="'Rules:'"></h4>
+                        <ul th:each="rule : ${card.rules}">
+                            <li th:text="${rule.rule}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

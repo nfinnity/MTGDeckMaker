@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MTGDeckMaker.iml" filepath="$PROJECT_DIR$/MTGDeckMaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mtg-deck-maker/mtg-deck-maker.iml" filepath="$PROJECT_DIR$/mtg-deck-maker/mtg-deck-maker.iml" />
+    </modules>
+  </component>
+</project>

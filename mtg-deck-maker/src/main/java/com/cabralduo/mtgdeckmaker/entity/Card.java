@@ -2,48 +2,53 @@ package com.cabralduo.mtgdeckmaker.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+
+@Data
+@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Card {
+public class Card implements Serializable {
 
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("oracle_id")
+    @Id
+    @SerializedName("oracle_id")
     private String oracleId;
 
-    @JsonProperty("name")
     private String name;
 
-    @JsonProperty("uri")
-    private String uri;
+    @SerializedName("mana_cost")
+    private String manaCost;
 
-    @JsonProperty("scryfall_uri")
-    private String scryfallUri;
+    private Double cmc;
 
-    @JsonProperty("image_uris")
-    private Image imageUris;
+    @SerializedName("type_line")
+    @Column(name="type")
+    private String typeLine;
 
-}
+    @SerializedName("rulings_uri")
+    @Transient
+    private String rulingsUri;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-class Image {
+//    private ColorIdentity colorIdentity;
 
-    @JsonProperty("small")
-    private String small;
+    @SerializedName("oracle_text")
+    @Column(name="description", columnDefinition="TEXT")
+    private String description;
 
-    @JsonProperty("normal")
-    private String normal;
+    @SerializedName("legalities")
+    @OneToOne(cascade = CascadeType.ALL)
+    private Legality legality;
 
-    @JsonProperty("large")
-    private String large;
+    @SerializedName("image_uris")
+    @OneToOne(cascade = CascadeType.ALL)
+    private Image image;
 
-    @JsonProperty("png")
-    private String png;
-
-    @JsonProperty("art_crop")
-    private String artCrop;
-
-    @JsonProperty("border_crop")
-    private String borderCrop;
+    @JsonProperty("data")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rule_id", referencedColumnName = "oracleId")
+    protected List<Rule> rules;
 }

@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9c96f4d1-cf29-400d-b7d4-5d25811f005c" name="Default" comment="1. Created a SearchCriteria object for accepting search fields 2. Created a SearchService for performing operations on search fields 3. Created Card object that holds information from the API response of Scryfall 4. Added Lombok to dependencies 5. Added git authors for making commits as a pair">
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/config/RestTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Deck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Image.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Legality.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Rule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/repository/CardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/CardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/static/stylesheets/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/controller/SearchControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/SearchServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-authors" beforeDir="false" afterPath="$PROJECT_DIR$/.git-authors" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtg-deck-maker/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mtg-deck-maker/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/MtgDeckMakerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/MtgDeckMakerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/controller/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/SearchCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/SearchService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/mtg-deck-maker/target/" />
+    <ignored path=".idea/" />
+    <ignored mask="*.iml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Card.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="51" column="65" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Rule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/show.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="42" column="101" selection-start-line="42" selection-start-column="101" selection-end-line="42" selection-end-column="101" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/controller/SearchController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/CardService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="card_table_create.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/card_table_create.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JUnit4 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>web</find>
+      <find>@entity</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/.gitignore" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/controllers/SearchController.java" />
+        <option value="$PROJECT_DIR$/.git-authors" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/SearchCriteria.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/config/RestTemplateConfig.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/ColorIdentity.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/search.html" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/stylesheets/index.css" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/partials/header.html" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/partials/footer.html" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/stylesheets/search.css" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/static/stylesheets/search.css" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Rules.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/SearchService.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/CardServiceImpl.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Deck.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/CardServiceImpl.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/UpdateDatabase.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/SearchServiceTest.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/controller/SearchControllerTest.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/CardData.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/scripts/configure-sql.sql" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/MtgDeckMakerApplication.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/pom.xml" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabaseTest.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/ImageService.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/RuleData.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/RuleService.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Price.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/repository/RuleRepository.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/application-dev.yml" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/search.html" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Legality.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Image.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/repository/CardRepository.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabase.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/CardService.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/controller/SearchController.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Rule.java" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Card.java" />
+        <option value="$PROJECT_DIR$/card_table_create.sql" />
+        <option value="$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/show.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mtg-deck-maker" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mtg-deck-maker" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mtg-deck-maker" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+              <item name="mtgdeckmaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+              <item name="mtgdeckmaker" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+              <item name="mtgdeckmaker" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+              <item name="mtgdeckmaker" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+              <item name="mtgdeckmaker" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+              <item name="mtgdeckmaker" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cabralduo" type="462c0819:PsiDirectoryNode" />
+              <item name="mtgdeckmaker" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MTGDeckMaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MTGDeckMaker" type="462c0819:PsiDirectoryNode" />
+              <item name="mtg-deck-maker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Projects/Java/SFG/spring5-mysql-recipe-app-refactor-db-init/src/main/java/guru/springframework/domain/Category.java" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.cabralduo.mtgdeckmaker.service.api" />
+      <recent name="com.cabralduo.mtgdeckmaker.service" />
+      <recent name="com.cabralduo.mtgdeckmaker.controller" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.cabralduo.mtgdeckmaker.service" />
+      <recent name="com.cabralduo.mtgdeckmaker.entity" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vinicius\Documents\Git\MTGDeckMaker\mtg-deck-maker\src\main\resources" />
+      <recent name="C:\Users\Vinicius\Documents\Git\MTGDeckMaker\mtg-deck-maker\src\main\resources\static" />
+      <recent name="C:\Users\Vinicius\Documents\Git\MTGDeckMaker\mtg-deck-maker\src\main\resources\templates\views" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MtgDeckMakerApplication">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="SearchControllerTest.what_does_it_do" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mtg-deck-maker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cabralduo.mtgdeckmaker.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.cabralduo.mtgdeckmaker.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.cabralduo.mtgdeckmaker.controller.SearchControllerTest" />
+      <option name="METHOD_NAME" value="what_does_it_do" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="SearchServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mtg-deck-maker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cabralduo.mtgdeckmaker.service.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.cabralduo.mtgdeckmaker.service" />
+      <option name="MAIN_CLASS_NAME" value="com.cabralduo.mtgdeckmaker.service.SearchServiceTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="UpdateDatabaseTest.checkFileNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mtg-deck-maker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cabralduo.mtgdeckmaker.service.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.cabralduo.mtgdeckmaker.service.api" />
+      <option name="MAIN_CLASS_NAME" value="com.cabralduo.mtgdeckmaker.service.api.UpdateDatabaseTest" />
+      <option name="METHOD_NAME" value="checkFileNotNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="MtgDeckMakerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="mtg-deck-maker" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cabralduo.mtgdeckmaker.MtgDeckMakerApplication" />
+      <option name="ACTIVE_PROFILES" value="dev" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.MtgDeckMakerApplication" />
+      <item itemvalue="JUnit.SearchServiceTest" />
+      <item itemvalue="JUnit.SearchControllerTest.what_does_it_do" />
+      <item itemvalue="JUnit.UpdateDatabaseTest.checkFileNotNull" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UpdateDatabaseTest.checkFileNotNull" />
+        <item itemvalue="JUnit.SearchControllerTest.what_does_it_do" />
+        <item itemvalue="JUnit.SearchServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c96f4d1-cf29-400d-b7d4-5d25811f005c" name="Default" comment="" />
+      <created>1549850903337</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1549850903337</updated>
+      <workItem from="1549850904713" duration="1170000" />
+      <workItem from="1549854344019" duration="2240000" />
+      <workItem from="1549898446704" duration="717000" />
+      <workItem from="1550418063633" duration="2226000" />
+      <workItem from="1550626339221" duration="1419000" />
+      <workItem from="1550627782451" duration="2952000" />
+      <workItem from="1550631585332" duration="4305000" />
+      <workItem from="1550636127051" duration="724000" />
+      <workItem from="1550670841372" duration="593000" />
+      <workItem from="1553801060950" duration="416000" />
+      <workItem from="1555101014901" duration="38000" />
+      <workItem from="1560355107874" duration="1584000" />
+      <workItem from="1560359396917" duration="428000" />
+      <workItem from="1560359990848" duration="12061000" />
+      <workItem from="1560433427307" duration="16047000" />
+      <workItem from="1560519690484" duration="16671000" />
+      <workItem from="1560546075686" duration="73000" />
+      <workItem from="1560546413434" duration="58000" />
+      <workItem from="1560546603573" duration="210000" />
+      <workItem from="1560546882901" duration="9313000" />
+      <workItem from="1560807758207" duration="605000" />
+      <workItem from="1560972408979" duration="207000" />
+      <workItem from="1561398236566" duration="1001000" />
+      <workItem from="1561746938963" duration="666000" />
+      <workItem from="1561943728009" duration="6206000" />
+      <workItem from="1561986562682" duration="3040000" />
+      <workItem from="1562015716032" duration="780000" />
+      <workItem from="1562016582377" duration="1273000" />
+      <workItem from="1562169513596" duration="810000" />
+      <workItem from="1562335909697" duration="14575000" />
+      <workItem from="1562598836084" duration="11938000" />
+      <workItem from="1562678345945" duration="19148000" />
+      <workItem from="1562763866498" duration="26758000" />
+      <workItem from="1562860597065" duration="17190000" />
+      <workItem from="1562936308657" duration="7683000" />
+      <workItem from="1563289871938" duration="359000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit for setting up the project. Includes:&#10;1. New module for the application and initial Maven dependencies&#10;2. Controller with URL mapping for hitting new API for card searches">
+      <created>1549856292700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549856292700</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Removed unnecessary ignore">
+      <created>1549856542886</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1549856542886</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="SearchControllerTest_what_does_it_do - 2019.06.14 at 22h 22m 49s.xml">
+      <configuration name="SearchControllerTest.what_does_it_do" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SearchControllerTest_what_does_it_do - 2019.06.14 at 22h 23m 24s.xml">
+      <configuration name="SearchControllerTest.what_does_it_do" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SearchControllerTest_what_does_it_do - 2019.06.14 at 22h 26m 01s.xml">
+      <configuration name="SearchControllerTest.what_does_it_do" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SearchControllerTest_what_does_it_do - 2019.06.14 at 22h 28m 25s.xml">
+      <configuration name="SearchControllerTest.what_does_it_do" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SearchControllerTest_what_does_it_do - 2019.06.14 at 22h 29m 26s.xml">
+      <configuration name="SearchControllerTest.what_does_it_do" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UpdateDatabaseTest_checkFileNotNull - 2019.07.08 at 11h 35m 10s.xml">
+      <configuration name="UpdateDatabaseTest.checkFileNotNull" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UpdateDatabaseTest_checkFileNotNull - 2019.07.08 at 11h 35m 33s.xml">
+      <configuration name="UpdateDatabaseTest.checkFileNotNull" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UpdateDatabaseTest_checkFileNotNull - 2019.07.09 at 09h 57m 36s.xml">
+      <configuration name="UpdateDatabaseTest.checkFileNotNull" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UpdateDatabaseTest_checkFileNotNull - 2019.07.09 at 09h 59m 40s.xml">
+      <configuration name="UpdateDatabaseTest.checkFileNotNull" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UpdateDatabaseTest_checkFileNotNull - 2019.07.09 at 10h 08m 52s.xml">
+      <configuration name="UpdateDatabaseTest.checkFileNotNull" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="185484000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="1040" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="10" weight="0.3295082" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="5" weight="0.3295082" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39800444" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.3292683" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="TCPMON" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32815966" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32372504" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3337029" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20491803" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32815966" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit for setting up the project. Includes:&#10;1. New module for the application and initial Maven dependencies&#10;2. Controller with URL mapping for hitting new API for card searches" />
+    <MESSAGE value="Removed unnecessary ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary ignore" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/CardServiceImpl.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabaseTest.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="16" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>restTemplate.getForObject(SCRYFALL_API_SEARCH + id, CardData.class)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/.mvn/wrapper/maven-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.git-authors">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/SearchCriteria.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/ColorIdentity.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/partials/footer.html" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/partials/header.html" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.4.RELEASE/spring-web-5.1.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/CardServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/CardServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/controller/SearchControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="21" selection-start-column="2" selection-end-line="47" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/SearchServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="25" selection-start-column="2" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Projects/Java/SFG/spring5-mysql-recipe-app-refactor-db-init/src/main/scripts/database-create-script.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/scripts/configure-sql.sql" />
+    <entry file="file://$PROJECT_DIR$/../../Projects/Java/SFG/spring5-mysql-recipe-app-refactor-db-init/src/main/scripts/configure-mysql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="30" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Projects/Java/SFG/spring5-mysql-recipe-app-refactor-db-init/src/main/resources/data-h2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Projects/Java/SFG/spring5-mysql-recipe-app-refactor-db-init/src/main/java/guru/springframework/domain/Category.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Projects/Java/SFG/spring5-mysql-recipe-app-refactor-db-init/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MTGDeckMaker.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.2.RELEASE/spring-boot-autoconfigure-2.1.2.RELEASE.jar!/org/springframework/boot/autoconfigure/orm/jpa/JpaBaseConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/config/RestTemplateConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/MtgDeckMakerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="104" selection-start-line="8" selection-start-column="104" selection-end-line="8" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/test/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/static/stylesheets/search.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/CardData.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/ImageService.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/RuleData.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Price.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/RuleService.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/repository/RuleRepository.java" />
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.1.4.RELEASE/spring-orm-5.1.4.RELEASE.jar!/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Legality.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="31" lean-forward="true" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.4.RELEASE/spring-data-commons-2.1.4.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/CardService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/controller/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/repository/CardRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="51" column="65" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/card_table_create.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/service/api/UpdateDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="42" column="101" selection-start-line="42" selection-start-column="101" selection-end-line="42" selection-end-column="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/java/com/cabralduo/mtgdeckmaker/entity/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg-deck-maker/src/main/resources/templates/views/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>javafx-swt</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>mtg-deck-maker</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
