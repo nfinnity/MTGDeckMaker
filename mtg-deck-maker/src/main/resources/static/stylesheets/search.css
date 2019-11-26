@@ -1,0 +1,31 @@
+body {
+    background-color: dimgray;
+}
+
+.header {
+    display: block;
+    margin: 2px auto;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.jumbotron-fluid {
+    background-color: darkgray;
+}
+
+div .card {
+    background-color: gray;
+    margin: 5px 0;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    height: auto;
+}
+
+.card-img-top {
+    padding: 2px;
+}
+
+.btn-secondary {
+    background: rgba(0, 0, 0, 0.5);
+}

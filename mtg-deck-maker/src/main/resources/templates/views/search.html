@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/search.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+
+               <img class="header img-fluid" src="https://media.wizards.com/2018/images/daily/gcYrmy5q9f.png" alt="">
+
+                <form action="/search" method="POST">
+                    <div class="form-group row justify-content-center">
+                        <div class="col-6">
+                            <input class="form-control form-control-lg mb-4" type="text" name="searchCriteria" placeholder="Search Card">
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-secondary mx-auto" value="Search">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-sm-4 col-lg-3" th:each="card : ${cards}"+>
+                <div class="card">
+                    <img class="card-img-top img-fluid" th:src="${card.image?.normal}" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-black" th:text="${card.name}"></h5>
+                        <p class="card-text" th:text="${card.description}"></p>
+                        <a th:href="@{'/search/'+${card.oracleId}}" class="btn btn-secondary">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="container">-->
+            <!--<div class="row card-info border rounded" th:each="card : ${cards}">-->
+                <!--<div class="col-4">-->
+                    <!--<img class="img-fluid img-thumbnail" th:src="${card.imageUris.normal}" alt="">-->
+                <!--</div>-->
+                <!--<div class="col-8">-->
+                    <!--<h3 th:text="${card.name}"></h3>-->
+                    <!--<p th:text="${card.description}"></p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    </div>
+
+</body>
+</html>
